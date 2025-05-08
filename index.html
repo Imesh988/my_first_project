@@ -22,7 +22,7 @@
                             <small class="text-light">Vehicle Maintenance Record</small>
                         </div>
                         <div class="card-body p-4">
-                            <form>
+                            <form id="serviceForm">
                                 <div class="mb-3">
                                     <label for="cus_nic" class="form-label">Customer NIC</label>
                                     <input type="text" id="cus_nic" name="cus_nic" class="form-control" placeholder="Enter customer NIC" required>
@@ -60,9 +60,9 @@
                 </div>
 
                 <div class="col-6">
-                    <div class="mb-4">
+                    <div class="card shadow-lg border-0 rounded-4">
                         <div class="card mb-4">
-                            <div class="card-heard bg-dark">
+                            <div class="card-heard bg-dark ">
                                 <h2 class="text-center text-white">Search Customer Details</h2>
                             </div>
                             <div class="card-body">
@@ -70,15 +70,21 @@
                                     <input type="text" id="serchId" class="form-control" placeholder="enter the customer NIC" required>
                                     <button class="btn btn-danger">Search</button>
                                 </div>
-                                
+
                                 <div id="output">
                                     <div class="card-heard bg-dark">
-                                        <h2 class="card-title">Enter Mechanical Cost</h2>
+                                        <h2 class="card-title text-white text-center">Full Cost</h2>
                                     </div>
                                     <div class="card-body" id="result"></div>
                                 </div>
 
-                                <div id=""></div>
+                                <div id="costCalculate">
+                                    <div class="mb-4">
+                                        <label for="full_cost" class="form-label">Mechanical Cost</label>
+                                        <input type="number" class="form-control" id="full_cost" placeholder="enter mechanical cost" required>
+                                    </div>
+                                    <button class="btn btn-success">Calculate Full Cost</button>
+                                </div>
                             </div>
                         </div>
                     </div>
