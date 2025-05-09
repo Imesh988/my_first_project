@@ -24,8 +24,8 @@ function searchCustomer(){
     if(customerData){
         const cusDetails = JSON.parse(customerData);
 
-        document.getElementById('result').innerHTML = `
-        <p><strong>Customer NIC : </strong>${cusDetails.cusNIC}</p>
+        document.getElementById('result').innerHTML = `             
+        
         <p><strong>Vehical Number : </strong>${cusDetails.vehNo}</p>
         <p><strong>Vehical Name : </strong>${cusDetails.vehName}</p>
         <p><strong>Service Cost : </strong>${cusDetails.cost}</p>`;
@@ -44,22 +44,50 @@ function searchCustomer(){
 
 }
 
-//full cost calculate
-function fullCost(){
+
+
+function fullCost() {
     const searchId = document.getElementById('serchId').value;
-    const customerData = localStorage.setItem(searchId);
+    const customerData = localStorage.getItem(searchId);
 
-    if(customerData){
-        const customer  = JSON.parse(customerData);
-
+    if (customerData) {
+        const customer = JSON.parse(customerData);
         const extraCost = parseFloat(document.getElementById('full_cost').value);
 
-        const fullCost = parseFloat(cusDetails.cost)* extraCost;
+        if (!isNaN(customer.cost) && !isNaN(extraCost)) {
+            const totalCost = parseFloat(customer.cost) + extraCost;
 
-        document.getElementById('full_cost').innerHTML = `
-        <hr>
-        <h4><strong>Full Cost : Rs.${fullCost}</strong></h4>
-        `;
+            document.getElementById('costCalculate').innerHTML += `
+                <hr>
+                <h4><strong>Total Cost : Rs.${totalCost.toFixed(2)}</strong></h4>
+
+                <alert>  Happy Customer  </alert>
+                <alert>  Come Back </alert>
+            `;
+        }
+        
     }
-
 }
+
+// //full cost calculate
+// function fullCost(){
+//     const searchId = document.getElementById('serchId').value;
+//     const customerData = localStorage.getItem(searchId);
+
+//     if(customerData){
+//         const customer  = JSON.parse(customerData);
+
+//         const extraCost = parseFloat(document.getElementById('extr').value);
+
+//         const fullCost = parseFloat(customer.cost)* extraCost;
+
+//         document.getElementById('full_cost').innerHTML += `
+//         <hr>
+//         <h4><strong>Full Cost : Rs.${fullCost}</strong></h4>
+//         `;
+//     }
+
+// }
+
+
+
